@@ -18,10 +18,10 @@ export const Sofa3 = () => {
       [TEXT_KEYS.BONE_COLOR]: " ",
       [TEXT_KEYS.FEATURE_1]: "Vintage crackle glaze finish",
       [TEXT_KEYS.FEATURE_2]: "3-way switch lighting",
-      [TEXT_KEYS.FEATURE_3]: "High-density foam for lasting support",
-      [TEXT_KEYS.CTA_TEXT]: "Shop modern furniture at ",
-      [TEXT_KEYS.WEBSITE]: "www.modernhome.com",
-      [TEXT_KEYS.FINAL_CTA]: "Modernize your home now.",
+      [TEXT_KEYS.FEATURE_3]: "Ideal end table proportions",
+      [TEXT_KEYS.CTA_TEXT]: "Shop instantly online—fast",
+      [TEXT_KEYS.WEBSITE]: "www.woodstockoutlet.com",
+      [TEXT_KEYS.FINAL_CTA]: "UL listed for safety assurance",
       [TEXT_KEYS.ELEVATE]: "elevate ",
       [TEXT_KEYS.YOUR]: " your",          // Trailing space removed (moved to next element)
       [TEXT_KEYS.LIVING]: " home",        // Trailing space removed (moved to next element)

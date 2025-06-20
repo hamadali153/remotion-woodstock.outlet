@@ -178,7 +178,7 @@ export const LottieTemplate: React.FC<LottieTemplateProps> = ({
       <Lottie animationData={animationData} />
       {!contentReplacements.useOriginalPaths && (
         <>
-          <Sequence from={0}>
+          
             <Audio
               src={staticFile(`${audioPath}aud_1.mp3`)}
               volume={1}
@@ -188,7 +188,7 @@ export const LottieTemplate: React.FC<LottieTemplateProps> = ({
                 setAudioError("Failed to load audio 1");
               }}
             />
-          </Sequence>
+      
           <Audio
             src={staticFile(`${audioPath}aud_2.mp3`)}
             volume={0.2}

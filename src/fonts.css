@@ -3,6 +3,80 @@
  * This CSS file provides additional font utility classes
  */
 
+/* Define Sora font faces */
+@font-face {
+  font-family: 'Sora-Regular';
+  src: url('../public/fonts/Sora-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sora-SemiBold';
+  src: url('../public/fonts/Sora-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sora-Bold';
+  src: url('../public/fonts/Sora-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('../public/fonts/Sora-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('../public/fonts/Sora-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('../public/fonts/Sora-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('../public/fonts/Sora-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('../public/fonts/Sora-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('../public/fonts/Sora-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url('../public/fonts/Sora-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
 /* Define font families for use in the application */
 :root {
   --font-sora: 'Sora', sans-serif;
@@ -55,16 +129,13 @@
 
 /* Font family aliases for Lottie compatibility */
 .font-family-sora-regular {
-  font-family: 'Sora', sans-serif;
-  font-weight: 400;
+  font-family: 'Sora-Regular', 'Sora', sans-serif;
 }
 
 .font-family-sora-semibold {
-  font-family: 'Sora', sans-serif;
-  font-weight: 600;
+  font-family: 'Sora-SemiBold', 'Sora', sans-serif;
 }
 
 .font-family-sora-bold {
-  font-family: 'Sora', sans-serif;
-  font-weight: 700;
+  font-family: 'Sora-Bold', 'Sora', sans-serif;
 }
