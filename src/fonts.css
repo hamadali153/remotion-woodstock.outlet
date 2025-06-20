@@ -1,0 +1,70 @@
+/* 
+ * Local Sora fonts are loaded via src/fonts.ts using @remotion/fonts
+ * This CSS file provides additional font utility classes
+ */
+
+/* Define font families for use in the application */
+:root {
+  --font-sora: 'Sora', sans-serif;
+}
+
+/* Utility classes for different font weights */
+.font-sora {
+  font-family: 'Sora', sans-serif;
+}
+
+.font-sora-thin {
+  font-family: 'Sora', sans-serif;
+  font-weight: 100;
+}
+
+.font-sora-extralight {
+  font-family: 'Sora', sans-serif;
+  font-weight: 200;
+}
+
+.font-sora-light {
+  font-family: 'Sora', sans-serif;
+  font-weight: 300;
+}
+
+.font-sora-regular {
+  font-family: 'Sora', sans-serif;
+  font-weight: 400;
+}
+
+.font-sora-medium {
+  font-family: 'Sora', sans-serif;
+  font-weight: 500;
+}
+
+.font-sora-semibold {
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+}
+
+.font-sora-bold {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+}
+
+.font-sora-extrabold {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+}
+
+/* Font family aliases for Lottie compatibility */
+.font-family-sora-regular {
+  font-family: 'Sora', sans-serif;
+  font-weight: 400;
+}
+
+.font-family-sora-semibold {
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+}
+
+.font-family-sora-bold {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+}
