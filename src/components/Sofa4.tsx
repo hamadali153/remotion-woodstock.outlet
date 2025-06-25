@@ -6,26 +6,17 @@ export const Sofa4 = () => {
   const content = createContentReplacements({
     componentName: "sofa4",
     textReplacements: {
-      [TEXT_KEYS.CARUSO]: "LUXURY\r",
-      [TEXT_KEYS.BONE]: "\rCREAM\r",
-      [TEXT_KEYS.PRODUCT_SUBTITLE]: "Executive Leather Lounge Suite",
-      [TEXT_KEYS.PERCENTAGE]: "100%",
-      [TEXT_KEYS.TOP_GRAIN]: "full-grain",
-      [TEXT_KEYS.ITALIAN]: " Italian",
-      [TEXT_KEYS.LEATHER]: "leather",
-      [TEXT_KEYS.NEUTRAL]: "Classic",
-      [TEXT_KEYS.TONE]: "Cream",
-      [TEXT_KEYS.BONE_COLOR]: "Leather",
-      [TEXT_KEYS.FEATURE_1]: "Hand-stitched with precision detailing",
-      [TEXT_KEYS.FEATURE_2]: "Executive-grade comfort and style",
-      [TEXT_KEYS.FEATURE_3]: "Timeless design for distinguished spaces",
-      [TEXT_KEYS.CTA_TEXT]: "Explore luxury furniture at ",
-      [TEXT_KEYS.WEBSITE]: "www.luxurylounge.com",
-      [TEXT_KEYS.FINAL_CTA]: "Indulge in luxury today.",
-      [TEXT_KEYS.ELEVATE]: "Indulge ",
-      [TEXT_KEYS.YOUR]: " in",            // Trailing space removed (moved to next element)
-      [TEXT_KEYS.LIVING]: " luxury",      // Trailing space removed (moved to next element)
-      [TEXT_KEYS.SPACE]: " today."        // Leading space added to compensate
+      [TEXT_KEYS.PRODUCT_NAME]: "NORDIC\rNAVY\r",
+      [TEXT_KEYS.PRODUCT_SUBTITLE]: "Scandinavian Loveseat by Design Studio",
+      [TEXT_KEYS.FEATURE_LEATHER]: "Sustainable fabric with stain protection",
+      [TEXT_KEYS.FEATURE_TONE]: "Deep Navy Blue Upholstery",
+      [TEXT_KEYS.FEATURE_SEATS]: "Compact two-seater design",
+      [TEXT_KEYS.FEATURE_SILHOUETTE]: "Mid-century modern aesthetic",
+      [TEXT_KEYS.FEATURE_CONSTRUCTION]: "Solid oak legs with natural finish",
+      [TEXT_KEYS.CTA_SHOP]: "Bring Scandinavian style home from ",
+      [TEXT_KEYS.WEBSITE]: "www.woodstockoutlet.com",
+      [TEXT_KEYS.CTA_DISCOVER]: "Simplicity meets sophisticated comfort",
+      [TEXT_KEYS.TAGLINE]: "Elevate your living space"
     }
   });
 

@@ -6,26 +6,17 @@ export const Sofa2 = () => {
   const content = createContentReplacements({
     componentName: "sofa2",
     textReplacements: {
-      [TEXT_KEYS.CARUSO]: "Cabalynn Oatmeal\r",
-      [TEXT_KEYS.BONE]: "\rLight Brown\r",
-      [TEXT_KEYS.PRODUCT_SUBTITLE]: "Ashley Furniture",
-      [TEXT_KEYS.PERCENTAGE]: "Hardwood solids",
-      [TEXT_KEYS.TOP_GRAIN]: " ",
-      [TEXT_KEYS.ITALIAN]: " ",
-      [TEXT_KEYS.LEATHER]: " ",
-      [TEXT_KEYS.NEUTRAL]: "Architectural modern",
-      [TEXT_KEYS.TONE]: " ",
-      [TEXT_KEYS.BONE_COLOR]: " ",
-      [TEXT_KEYS.FEATURE_1]: "Long-lasting durable construction",
-      [TEXT_KEYS.FEATURE_2]: "Cushioned seat for sublime comfort",
-      [TEXT_KEYS.FEATURE_3]: "Generous seat dimensions add comfort",
-      [TEXT_KEYS.CTA_TEXT]: "Order yours online now ",
+      [TEXT_KEYS.PRODUCT_NAME]: "VALENCIA\rCREAM\r",
+      [TEXT_KEYS.PRODUCT_SUBTITLE]: "Sectional Sofa by Modern Living",
+      [TEXT_KEYS.FEATURE_LEATHER]: "Premium microfiber upholstery",
+      [TEXT_KEYS.FEATURE_TONE]: "Neutral Cream Finish",
+      [TEXT_KEYS.FEATURE_SEATS]: "Spacious L-shaped configuration",
+      [TEXT_KEYS.FEATURE_SILHOUETTE]: "Contemporary design with clean lines",
+      [TEXT_KEYS.FEATURE_CONSTRUCTION]: "High-density foam for ultimate comfort",
+      [TEXT_KEYS.CTA_SHOP]: "Discover luxury seating solutions at ",
       [TEXT_KEYS.WEBSITE]: "www.woodstockoutlet.com",
-      [TEXT_KEYS.FINAL_CTA]: "Refined neutral polyester upholstery",
-      [TEXT_KEYS.ELEVATE]: "Elevate",
-      [TEXT_KEYS.YOUR]: " your",       // Trailing space removed (moved to next element)
-      [TEXT_KEYS.LIVING]: " space.",      // Trailing space removed (moved to next element)
-      [TEXT_KEYS.SPACE]: " "         // Leading space added to compensate
+      [TEXT_KEYS.CTA_DISCOVER]: "Transform your living room today",
+      [TEXT_KEYS.TAGLINE]: "Elevate your living space"
     }
   });
 

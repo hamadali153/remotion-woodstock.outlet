@@ -6,26 +6,17 @@ export const Sofa3 = () => {
   const content = createContentReplacements({
     componentName: "sofa3",
     textReplacements: {
-      [TEXT_KEYS.CARUSO]: "EMELDA CREAM CEREMIC\r",
-      [TEXT_KEYS.BONE]: "\rTABLE LAMP\r",
-      [TEXT_KEYS.PRODUCT_SUBTITLE]: "Ashley Furniture",
-      [TEXT_KEYS.PERCENTAGE]: "Glazed ceramic base",
-      [TEXT_KEYS.TOP_GRAIN]: " ",
-      [TEXT_KEYS.ITALIAN]: " ",
-      [TEXT_KEYS.LEATHER]: " ",
-      [TEXT_KEYS.NEUTRAL]: "Vase shape with handles",
-      [TEXT_KEYS.TONE]: " ",
-      [TEXT_KEYS.BONE_COLOR]: " ",
-      [TEXT_KEYS.FEATURE_1]: "Vintage crackle glaze finish",
-      [TEXT_KEYS.FEATURE_2]: "3-way switch lighting",
-      [TEXT_KEYS.FEATURE_3]: "Ideal end table proportions",
-      [TEXT_KEYS.CTA_TEXT]: "Shop instantly online—fast",
+      [TEXT_KEYS.PRODUCT_NAME]: "MANHATTAN\rCHARCOAL\r",
+      [TEXT_KEYS.PRODUCT_SUBTITLE]: "Power Reclining Sofa by Elite Comfort",
+      [TEXT_KEYS.FEATURE_LEATHER]: "100% genuine leather upholstery",
+      [TEXT_KEYS.FEATURE_TONE]: "Rich Charcoal Finish",
+      [TEXT_KEYS.FEATURE_SEATS]: "Dual power reclining mechanisms",
+      [TEXT_KEYS.FEATURE_SILHOUETTE]: "USB charging ports in both armrests",
+      [TEXT_KEYS.FEATURE_CONSTRUCTION]: "Memory foam cushions for personalized comfort",
+      [TEXT_KEYS.CTA_SHOP]: "Experience ultimate relaxation at ",
       [TEXT_KEYS.WEBSITE]: "www.woodstockoutlet.com",
-      [TEXT_KEYS.FINAL_CTA]: "UL listed for safety assurance",
-      [TEXT_KEYS.ELEVATE]: "elevate ",
-      [TEXT_KEYS.YOUR]: " your",          // Trailing space removed (moved to next element)
-      [TEXT_KEYS.LIVING]: " home",        // Trailing space removed (moved to next element)
-      [TEXT_KEYS.SPACE]: " now."          // Leading space added to compensate
+      [TEXT_KEYS.CTA_DISCOVER]: "Redefine comfort and convenience",
+      [TEXT_KEYS.TAGLINE]: "Elevate your living space"
     }
   });
 
