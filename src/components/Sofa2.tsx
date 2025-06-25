@@ -6,17 +6,17 @@ export const Sofa2 = () => {
   const content = createContentReplacements({
     componentName: "sofa2",
     textReplacements: {
-      [TEXT_KEYS.PRODUCT_NAME]: "VALENCIA\rCREAM\r",
-      [TEXT_KEYS.PRODUCT_SUBTITLE]: "Sectional Sofa by Modern Living",
-      [TEXT_KEYS.FEATURE_LEATHER]: "Premium microfiber upholstery",
-      [TEXT_KEYS.FEATURE_TONE]: "Neutral Cream Finish",
-      [TEXT_KEYS.FEATURE_SEATS]: "Spacious L-shaped configuration",
-      [TEXT_KEYS.FEATURE_SILHOUETTE]: "Contemporary design with clean lines",
-      [TEXT_KEYS.FEATURE_CONSTRUCTION]: "High-density foam for ultimate comfort",
-      [TEXT_KEYS.CTA_SHOP]: "Discover luxury seating solutions at ",
+      [TEXT_KEYS.PRODUCT_NAME]: "CABALYNN OATMEAL\rLIGHT BROWN\r",
+      [TEXT_KEYS.PRODUCT_SUBTITLE]: "Ashley Furniture",
+      [TEXT_KEYS.FEATURE_LEATHER]: "Hardwood solids and veneers",
+      [TEXT_KEYS.FEATURE_TONE]: "Architectural modern lodge",
+      [TEXT_KEYS.FEATURE_SEATS]: "Neutral polyester upholstery",
+      [TEXT_KEYS.FEATURE_SILHOUETTE]: "Cushioned seat for sublime comfort",
+      [TEXT_KEYS.FEATURE_CONSTRUCTION]: "Generous seat dimensions",
+      [TEXT_KEYS.CTA_SHOP]: "Order yours online now",
       [TEXT_KEYS.WEBSITE]: "www.woodstockoutlet.com",
-      [TEXT_KEYS.CTA_DISCOVER]: "Transform your living room today",
-      [TEXT_KEYS.TAGLINE]: "Elevate your living space"
+      [TEXT_KEYS.CTA_DISCOVER]: "Durable construction shine",
+      [TEXT_KEYS.TAGLINE]: "Elevate your space with Cabalynn"
     }
   });
 

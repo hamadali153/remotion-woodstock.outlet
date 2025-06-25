@@ -43,6 +43,7 @@ export const LottieTemplate: React.FC<LottieTemplateProps> = ({
   const [handle] = useState(() => delayRender("Loading animation"));
   const [animationData, setAnimationData] = useState(null);
   const [audioError, setAudioError] = useState<string | null>(null);
+  const [playbackRate, setPlaybackRate] = useState(1);
 
   // Get base paths based on component name or use original
   const getAssetBasePaths = (componentName?: string, useOriginalPaths?: boolean) => {
@@ -145,6 +146,56 @@ export const LottieTemplate: React.FC<LottieTemplateProps> = ({
     processAnimationData();
   }, [handle, contentReplacements, imagePath, audioPath]);
 
+  // Calculate playback rate to match video duration
+  useEffect(() => {
+    if (!animationData || contentReplacements.useOriginalPaths) return;
+
+    const calculatePlaybackRate = async () => {
+      try {
+        // Get video duration from Lottie JSON
+        const totalFrames = (animationData as any).op;
+        const frameRate = (animationData as any).fr;
+        const videoDuration = totalFrames / frameRate; // in seconds
+
+        // Get audio duration
+        const audio = new window.Audio(staticFile(`${audioPath}aud_1.mp3`));
+        
+        audio.addEventListener('loadedmetadata', () => {
+          const audioDuration = audio.duration; // in seconds
+          
+          // Calculate playback rate
+          const calculatedRate = audioDuration / videoDuration;
+          setPlaybackRate(calculatedRate);
+          
+          console.log(`=== Audio Sync Calculation ===`);
+          console.log(`Video duration from Lottie: ${videoDuration.toFixed(2)}s`);
+          console.log(`Expected video duration: 35.29s`);
+          console.log(`Duration difference: ${Math.abs(videoDuration - 35.29).toFixed(2)}s`);
+          console.log(`Audio duration: ${audioDuration.toFixed(2)}s`);
+          console.log(`Calculated playback rate: ${calculatedRate.toFixed(3)}`);
+          console.log(`==============================`);
+          
+          // Warn if calculated duration doesn't match expected
+          if (Math.abs(videoDuration - 35.29) > 0.1) {
+            console.warn(`⚠️  Video duration mismatch! Expected 35.29s but calculated ${videoDuration.toFixed(2)}s`);
+          }
+        });
+
+        audio.addEventListener('error', (error: any) => {
+          console.error("Failed to load audio metadata:", error);
+          // Keep default playback rate of 1 if audio fails to load
+        });
+
+        // Load the audio to trigger metadata loading
+        audio.load();
+      } catch (error) {
+        console.error("Error calculating playback rate:", error);
+      }
+    };
+
+    calculatePlaybackRate();
+  }, [animationData, audioPath, contentReplacements.useOriginalPaths]);
+
   if (!animationData) {
     return (
       <AbsoluteFill style={{ 
@@ -182,7 +233,7 @@ export const LottieTemplate: React.FC<LottieTemplateProps> = ({
             <Audio
               src={staticFile(`${audioPath}aud_1.mp3`)}
               volume={1}
-              playbackRate={1}
+              playbackRate={playbackRate}
               onError={(error) => {
                 console.error("Audio 1 error:", error);
                 setAudioError("Failed to load audio 1");
