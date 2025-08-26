@@ -14,7 +14,7 @@ export const ProductVideo = () => {
       [TEXT_KEYS.FEATURE_FINISH]: "Durable support for seating or ottoman",
       [TEXT_KEYS.FEATURE_SILHOUETTE]: "Dense polystyrene filling stays plush",
       [TEXT_KEYS.FEATURE_CONSTRUCTION]: "Zippered cotton cover for easy spot-cleaning",
-      [TEXT_KEYS.CTA_SHOP]: "Shop online now",
+      [TEXT_KEYS.CTA_SHOP]: "Shop online today",
       [TEXT_KEYS.WEBSITE]: "www.woodstockoutlet.com",
       [TEXT_KEYS.TAGLINE]: "Experience refined softness with the "
     }
