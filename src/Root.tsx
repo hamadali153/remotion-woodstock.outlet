@@ -17,48 +17,48 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="OriginalVideo"
         component={OriginalVideo}
-        durationInFrames={1080}
-        fps={30}
+        durationInFrames={900}
+        fps={29.97}
         width={1920}
         height={1080}
       />
       <Composition
         id="ProductVideo"
         component={ProductVideo}
-        durationInFrames={1080}
-        fps={30}
+        durationInFrames={900}
+        fps={29.97}
         width={1920}
         height={1080}
       />
       <Composition
         id="Sofa1"
         component={Sofa1}
-        durationInFrames={1080}
-        fps={30}
+        durationInFrames={900}
+        fps={29.97}
         width={1920}
         height={1080}
       />
       <Composition
         id="Sofa2"
         component={Sofa2}
-        durationInFrames={1080}
-        fps={30}
+        durationInFrames={900}
+        fps={29.97}
         width={1920}
         height={1080}
       />
       <Composition
         id="Sofa3"
         component={Sofa3}
-        durationInFrames={1080}
-        fps={30}
+        durationInFrames={900}
+        fps={29.97}
         width={1920}
         height={1080}
       />
       <Composition
         id="Sofa4"
         component={Sofa4}
-        durationInFrames={1080}
-        fps={30}
+        durationInFrames={900}
+        fps={29.97}
         width={1920}
         height={1080}
       />

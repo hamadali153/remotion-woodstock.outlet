@@ -21,11 +21,13 @@ interface LottieAsset {
 
 interface LottieLayer {
   nm: string;
+  ty?: number;
   t?: {
     d?: {
       k?: Array<{
         s?: {
           t?: string;
+          f?: string;
         };
       }>;
     };
@@ -104,8 +106,8 @@ export const LottieTemplate: React.FC<LottieTemplateProps> = ({
           // Process text layers if text replacements are provided
           if (processedJson.layers && contentReplacements.textReplacements) {
             processedJson.layers = processedJson.layers.map((layer: LottieLayer) => {
-              // Check if it's a text layer
-              if (layer.t?.d?.k?.[0]?.s?.t) {
+              // Check if it's a text layer (ty === 5) and has text content
+              if (layer.ty === 5 && layer.t?.d?.k?.[0]?.s?.t) {
                 const originalText = layer.t.d.k[0].s.t;
                 
                 // Check if we have a replacement for this text
@@ -175,16 +177,9 @@ export const LottieTemplate: React.FC<LottieTemplateProps> = ({
           
           console.log(`=== Audio Sync Calculation ===`);
           console.log(`Video duration from Lottie: ${videoDuration.toFixed(2)}s`);
-          console.log(`Expected video duration: 34.27s`);
-          console.log(`Duration difference: ${Math.abs(videoDuration - 34.27).toFixed(2)}s`);
           console.log(`Audio duration: ${audioDuration.toFixed(2)}s`);
           console.log(`Calculated playback rate: ${calculatedRate.toFixed(3)}`);
           console.log(`==============================`);
-          
-          // Warn if calculated duration doesn't match expected
-          if (Math.abs(videoDuration - 34.27) > 0.1) {
-            console.warn(`⚠️  Video duration mismatch! Expected 34.27s but calculated ${videoDuration.toFixed(2)}s`);
-          }
 
           // Mark audio as ready and continue rendering
           setAudioReady(true);
@@ -243,20 +238,19 @@ export const LottieTemplate: React.FC<LottieTemplateProps> = ({
       <Lottie animationData={animationData} />
       {!contentReplacements.useOriginalPaths && (
         <>
-          
-            <Audio
-              src={staticFile(`${audioPath}aud_1.mp3`)}
-              volume={1}
-              playbackRate={playbackRate}
-              onError={(error) => {
-                console.error("Audio 1 error:", error);
-                setAudioError("Failed to load audio 1");
-              }}
-            />
+          <Audio
+            src={staticFile(`${audioPath}aud_1.mp3`)}
+            volume={1}
+            playbackRate={playbackRate}
+            onError={(error) => {
+              console.error("Audio 1 error:", error);
+              setAudioError("Failed to load audio 1");
+            }}
+          />
       
           <Audio
             src={staticFile(`${audioPath}aud_2.mp3`)}
-            volume={0.2}
+            volume={0.8}
             playbackRate={1}
             onError={(error) => {
               console.error("Audio 2 error:", error);
