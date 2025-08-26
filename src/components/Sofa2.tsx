@@ -6,17 +6,17 @@ export const Sofa2 = () => {
   const content = createContentReplacements({
     componentName: "sofa2",
     textReplacements: {
-      [TEXT_KEYS.PRODUCT_NAME]: "CABALYNN OATMEAL\rLIGHT BROWN\r",
+      [TEXT_KEYS.PRODUCT_BRAND]: "TRAEMORE", // replaces "CLARE"
+      [TEXT_KEYS.PRODUCT_COLOR]: "RIVER", // replaces "BEIGE"
+      [TEXT_KEYS.PRODUCT_NAME]: "Traemore - River - Accent Chair", 
+      [TEXT_KEYS.TAGLINE]: "Transform your space with the ",// replaces multiline product name
       [TEXT_KEYS.PRODUCT_SUBTITLE]: "Ashley Furniture",
-      [TEXT_KEYS.FEATURE_LEATHER]: "Hardwood solids and veneers",
-      [TEXT_KEYS.FEATURE_TONE]: "Architectural modern lodge",
-      [TEXT_KEYS.FEATURE_SEATS]: "Neutral polyester upholstery",
-      [TEXT_KEYS.FEATURE_SILHOUETTE]: "Cushioned seat for sublime comfort",
-      [TEXT_KEYS.FEATURE_CONSTRUCTION]: "Generous seat dimensions",
-      [TEXT_KEYS.CTA_SHOP]: "Order yours online now",
-      [TEXT_KEYS.WEBSITE]: "www.woodstockoutlet.com",
-      [TEXT_KEYS.CTA_DISCOVER]: "Durable construction shine",
-      [TEXT_KEYS.TAGLINE]: "Elevate your space with Cabalynn"
+      [TEXT_KEYS.FEATURE_MATERIAL]: "Plush foam seat cushions",
+      [TEXT_KEYS.FEATURE_FINISH]: "Sturdy corner-blocked frame",
+      [TEXT_KEYS.FEATURE_SILHOUETTE]: "Oversized check print blue design",
+      [TEXT_KEYS.FEATURE_CONSTRUCTION]: "Ensure versatile placement",
+      [TEXT_KEYS.CTA_SHOP]: "Order Your Accent Now",
+      [TEXT_KEYS.WEBSITE]: "www.woodstockoutlet.com"
     }
   });
 

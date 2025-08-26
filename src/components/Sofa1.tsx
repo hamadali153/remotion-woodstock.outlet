@@ -6,17 +6,17 @@ export const RoybeckLightBrown = () => {
   const content = createContentReplacements({
     componentName: "sofa1",
     textReplacements: {
-      [TEXT_KEYS.PRODUCT_NAME]: "ROYBECK\rLIGHT BROWN\r",
+      [TEXT_KEYS.PRODUCT_BRAND]: "SAHER", // replaces "CLARE"
+      [TEXT_KEYS.PRODUCT_COLOR]: "GREEN", // replaces "BEIGE"
+      [TEXT_KEYS.PRODUCT_NAME]: "Saher Green \rCeramic Table Lamp", 
+      [TEXT_KEYS.TAGLINE]: "Elevate your living space with the ",// replaces multiline product name
       [TEXT_KEYS.PRODUCT_SUBTITLE]: "Ashley Furniture",
-      [TEXT_KEYS.FEATURE_LEATHER]: "Expertly crafted from acacia wood",
-      [TEXT_KEYS.FEATURE_TONE]: "Butterfly-patterned Veneer",
-      [TEXT_KEYS.FEATURE_SEATS]: "Robust dark bronze-tone wood frame",
-      [TEXT_KEYS.FEATURE_SILHOUETTE]: "Fixed shelf provides convenient display",
-      [TEXT_KEYS.FEATURE_CONSTRUCTION]: "Set includes coffee table",
-      [TEXT_KEYS.CTA_SHOP]: "Shop today, enjoy complimentary shipping at ",
-      [TEXT_KEYS.WEBSITE]: "www.woodstockoutlet.com",
-      [TEXT_KEYS.CTA_DISCOVER]: "Premium materials guarantee lasting elegance and quality",
-      [TEXT_KEYS.TAGLINE]: "Elevate your living space"
+      [TEXT_KEYS.FEATURE_MATERIAL]: "Earthy two-tone ceramic base",
+      [TEXT_KEYS.FEATURE_FINISH]: "Textured fabric shade for elegance",
+      [TEXT_KEYS.FEATURE_SILHOUETTE]: "Easy-care surface with wipe clean finish",
+      [TEXT_KEYS.FEATURE_CONSTRUCTION]: "Perfectly sized for any table",
+      [TEXT_KEYS.CTA_SHOP]: "Order Yours Today",
+      [TEXT_KEYS.WEBSITE]: "www.woodstockoutlet.com"
     }
   });
 

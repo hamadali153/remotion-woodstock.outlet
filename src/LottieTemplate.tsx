@@ -16,12 +16,14 @@ interface LottieAsset {
   p: string;
   u: string;
   t?: number;
+  layers?: LottieLayer[];
   [key: string]: any;
 }
 
 interface LottieLayer {
   nm: string;
   ty?: number;
+  refId?: string;
   t?: {
     d?: {
       k?: Array<{
@@ -68,6 +70,57 @@ export const LottieTemplate: React.FC<LottieTemplateProps> = ({
     [contentReplacements.componentName, contentReplacements.useOriginalPaths]
   );
 
+  // Replace text in a single layer if it contains text
+  const replaceTextInLayer = (layer: LottieLayer, replacements: Record<string, string>): LottieLayer => {
+    if (layer.ty === 5 && layer.t?.d?.k?.[0]?.s?.t) {
+      const originalText = layer.t.d.k[0].s.t as string;
+      const replacement = replacements[originalText];
+      if (replacement) {
+        return {
+          ...layer,
+          t: {
+            ...layer.t,
+            d: {
+              ...layer.t.d,
+              k: [
+                {
+                  ...layer.t.d.k[0],
+                  s: {
+                    ...layer.t.d.k[0].s,
+                    t: replacement,
+                  },
+                },
+              ],
+            },
+          },
+        };
+      }
+    }
+    return layer;
+  };
+
+  // Recursively replace text in layers and nested precomps
+  const replaceTexts = (
+    layers: LottieLayer[] | undefined,
+    assetsById: Record<string, LottieAsset>,
+    replacements: Record<string, string>
+  ): LottieLayer[] | undefined => {
+    if (!layers) return layers;
+    return layers.map((layer) => {
+      let updatedLayer = replaceTextInLayer(layer, replacements);
+
+      // If precomp, dive into referenced asset's layers
+      if (updatedLayer.ty === 0 && updatedLayer.refId) {
+        const asset = assetsById[updatedLayer.refId];
+        if (asset && Array.isArray(asset.layers)) {
+          asset.layers = replaceTexts(asset.layers, assetsById, replacements) as LottieLayer[];
+        }
+      }
+
+      return updatedLayer;
+    });
+  };
+
   useEffect(() => {
     const processAnimationData = async () => {
       try {
@@ -105,37 +158,19 @@ export const LottieTemplate: React.FC<LottieTemplateProps> = ({
 
           // Process text layers if text replacements are provided
           if (processedJson.layers && contentReplacements.textReplacements) {
-            processedJson.layers = processedJson.layers.map((layer: LottieLayer) => {
-              // Check if it's a text layer (ty === 5) and has text content
-              if (layer.ty === 5 && layer.t?.d?.k?.[0]?.s?.t) {
-                const originalText = layer.t.d.k[0].s.t;
-                
-                // Check if we have a replacement for this text
-                const replacement = contentReplacements.textReplacements?.[originalText];
-                
-                if (replacement) {
-                  return {
-                    ...layer,
-                    t: {
-                      ...layer.t,
-                      d: {
-                        ...layer.t.d,
-                        k: [
-                          {
-                            ...layer.t.d.k[0],
-                            s: {
-                              ...layer.t.d.k[0].s,
-                              t: replacement
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  };
-                }
+            // Build assets index for quick lookup when traversing precomps
+            const assetsById: Record<string, LottieAsset> = {};
+            if (Array.isArray(processedJson.assets)) {
+              for (const a of processedJson.assets as LottieAsset[]) {
+                if (a?.id) assetsById[a.id] = a;
               }
-              return layer;
-            });
+            }
+
+            processedJson.layers = replaceTexts(
+              processedJson.layers as LottieLayer[],
+              assetsById,
+              contentReplacements.textReplacements
+            );
           }
         }
 

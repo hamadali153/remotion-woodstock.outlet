@@ -6,17 +6,17 @@ export const ProductVideo = () => {
   const content = createContentReplacements({
     componentName: "product",
     textReplacements: {
-      [TEXT_KEYS.PRODUCT_NAME]: "CLARE\rBEIGE\r",
+      [TEXT_KEYS.PRODUCT_BRAND]: "CHEVRON", // replaces "CLARE"
+      [TEXT_KEYS.PRODUCT_COLOR]: "BLUE", // replaces "BEIGE"
+      [TEXT_KEYS.PRODUCT_NAME]: "Chevron Blue Pouf \rAccent Ottoman", // replaces multiline product name
       [TEXT_KEYS.PRODUCT_SUBTITLE]: "Ashley Furniture",
-      [TEXT_KEYS.FEATURE_LEATHER]: "Crafted from sturdy eucalyptus wood",
-      [TEXT_KEYS.FEATURE_TONE]: "Nuvella pillows offer plush support",
-      [TEXT_KEYS.FEATURE_SEATS]: "Five-step protective finish stands up to rain and sun",
-      [TEXT_KEYS.FEATURE_SILHOUETTE]: "Removable cushions for easy maintenance",
-      [TEXT_KEYS.FEATURE_CONSTRUCTION]: "The ample 76.5-inch seat",
-      [TEXT_KEYS.CTA_SHOP]: "Shop online now, free shipping guaranteed at ",
+      [TEXT_KEYS.FEATURE_MATERIAL]: "Handmade from genuine denim strips",
+      [TEXT_KEYS.FEATURE_FINISH]: "Durable support for seating or ottoman",
+      [TEXT_KEYS.FEATURE_SILHOUETTE]: "Dense polystyrene filling stays plush",
+      [TEXT_KEYS.FEATURE_CONSTRUCTION]: "Zippered cotton cover for easy spot-cleaning",
+      [TEXT_KEYS.CTA_SHOP]: "Shop online now",
       [TEXT_KEYS.WEBSITE]: "www.woodstockoutlet.com",
-      [TEXT_KEYS.CTA_DISCOVER]: "All-weather foam core delivers lasting comfort",
-      [TEXT_KEYS.TAGLINE]: "Enjoy outdoor style and comfort"
+      [TEXT_KEYS.TAGLINE]: "Experience refined softness with the "
     }
   });
 

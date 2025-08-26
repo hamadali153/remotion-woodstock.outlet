@@ -6,17 +6,17 @@ export const Sofa3 = () => {
   const content = createContentReplacements({
     componentName: "sofa3",
     textReplacements: {
-      [TEXT_KEYS.PRODUCT_NAME]: "EMELDA CREAM CEREMIC\rTABLE LAMP\r",
+      [TEXT_KEYS.PRODUCT_BRAND]: "VENALDI", // replaces "CLARE"
+      [TEXT_KEYS.PRODUCT_COLOR]: "GUNMETAL", // replaces "BEIGE"
+      [TEXT_KEYS.PRODUCT_NAME]: "Venaldi - Gunmetal - Chair", 
+      [TEXT_KEYS.TAGLINE]: "Elevate your space with the ",// replaces multiline product name
       [TEXT_KEYS.PRODUCT_SUBTITLE]: "Ashley Furniture",
-      [TEXT_KEYS.FEATURE_LEATHER]: "Glazed ceramic base construction",
-      [TEXT_KEYS.FEATURE_TONE]: "Beautifully styled handles",
-      [TEXT_KEYS.FEATURE_SEATS]: "Vintage crackle glaze finish",
-      [TEXT_KEYS.FEATURE_SILHOUETTE]: "3-way switch lighting for flexible lighting",
-      [TEXT_KEYS.FEATURE_CONSTRUCTION]: "Ideal end table proportions",
-      [TEXT_KEYS.CTA_SHOP]: "Shop instantly online—fast, reliable shipping",
-      [TEXT_KEYS.WEBSITE]: "www.woodstockoutlet.com",
-      [TEXT_KEYS.CTA_DISCOVER]: " UL listed for quality",
-      [TEXT_KEYS.TAGLINE]: "Illuminate your home"
+      [TEXT_KEYS.FEATURE_MATERIAL]: "Luxurious faux leather upholstery",
+      [TEXT_KEYS.FEATURE_FINISH]: "Sleek linear track arms design",
+      [TEXT_KEYS.FEATURE_SILHOUETTE]: "Durable platform foundation",
+      [TEXT_KEYS.FEATURE_CONSTRUCTION]: "Experience sophisticated relaxation",
+      [TEXT_KEYS.CTA_SHOP]: "Order Yours Today",
+      [TEXT_KEYS.WEBSITE]: "www.woodstockoutlet.com"
     }
   });
 

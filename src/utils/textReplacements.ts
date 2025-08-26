@@ -1,3 +1,4 @@
+// src/utils/textReplacements.ts
 // Types for text and content replacements
 export interface TextReplacements {
   [key: string]: string;
@@ -17,63 +18,64 @@ export interface ContentReplacements {
   useOriginalPaths?: boolean; // If true, uses paths directly from JSON
 }
 
-// ACTUAL text keys that exist in the JSON template (exact matches from the animation)
+// TEXT KEYS updated to match actual strings found in public/templates/ae-template.json
+// These are the exact originals we will replace in the JSON.
 export const TEXT_KEYS = {
-  // Website and branding
+  // Branding / product identifier
+  PRODUCT_BRAND: "CLARE",
+  PRODUCT_COLOR: "BEIGE",
+  PRODUCT_NAME: "CLARE VIEW\rCUSHIONED \rOUTDOOR \rSOFA", // multiline with \r as in JSON
+
+  // Subtitle / byline
+  PRODUCT_SUBTITLE: "SOFA BY ASHLY FURNITURE",
+
+  // Website
   WEBSITE: "www.woodstockoutlet.com",
-  
-  // Call to action text
-  CTA_SHOP: "Shop the Caruso Bone Leather Maxi Sofa at ",
-  CTA_DISCOVER: "Discover minimalist luxury now.",
-  
-  // Product features and descriptions
-  FEATURE_CONSTRUCTION: "Durable, easy-care construction built for modern life",
-  FEATURE_TONE: "Neutral Bone Tone",
-  FEATURE_SILHOUETTE: "Sleek tapered legs and tailored seams for a clean silhouette",
-  FEATURE_SEATS: "Two oversized low-profile seats",
-  FEATURE_LEATHER: "100% top-grain Italian leather",
-  
-  // Product information
-  PRODUCT_SUBTITLE: "Leather Maxi Sofa by Soft Line America",
-  PRODUCT_NAME: "CARUSO\rBONE\r", // This includes line breaks as in the original
-  
-  // Tagline
-  TAGLINE: "Elevate your living space"
+
+  // CTA
+  CTA_SHOP: "SHOP ONLINE NOW",
+
+  // Feature lines (exact copies from JSON)
+  FEATURE_CONSTRUCTION: "THE AMPLE 76.5-INCH SEAT & \rALL-WEATHER FOAM CORE DELIVERS LASTING COMFORT",
+  FEATURE_SILHOUETTE: "REMOVABLE CUSHIONS FOR EASY MAINTENANCE & \rNUVELLA PILLOWS OFFER PLUSH SUPPORT",
+  FEATURE_FINISH: "FIVE-STEP PROTECTIVE FINISH STANDS UP TO RAIN AND SUN",
+  FEATURE_MATERIAL: "CRAFTED FROM STURDY EUCALYPTUS WOOD",
+  TAGLINE: "ENJOY OUTDOOR STYLE\u00A0AND\u00A0COMFORT" // includes non-breaking spaces in template
 } as const;
 
 // Image asset IDs from the Lottie JSON
 export const IMAGE_IDS = {
-  IMAGE_0: "image_0", // Logo (img_0.png)
-  IMAGE_1: "image_1", // Product image (img_1.png)
-  IMAGE_2: "image_2", // High-res product shot (img_2.jpg)
-  IMAGE_3: "image_3", // Feature image (img_3.jpg)
-  IMAGE_4: "image_4", // Feature image (img_4.jpg)
-  IMAGE_5: "image_5", // Feature image (img_5.jpg)
-  IMAGE_6: "image_6", // Product image (img_6.png)
-  IMAGE_7: "image_7"  // Background image (img_7.jpg)
+  IMAGE_0: "image_0",
+  IMAGE_1: "image_1",
+  IMAGE_2: "image_2",
+  IMAGE_3: "image_3",
+  IMAGE_4: "image_4",
+  IMAGE_5: "image_5",
+  IMAGE_6: "image_6",
+  IMAGE_7: "image_7"
 } as const;
 
-// Audio asset IDs from the Lottie JSON
+// Audio asset IDs from the Lottie JSON (present but not directly used for text)
 export const AUDIO_IDS = {
-  AUDIO_0: "audio_0", // aud_0.mp3
-  AUDIO_1: "audio_1", // aud_1.mp3
-  AUDIO_2: "audio_2", // aud_2.mp3
-  AUDIO_3: "audio_3"  // aud_3.mp3
+  AUDIO_0: "audio_0",
+  AUDIO_1: "audio_1",
+  AUDIO_2: "audio_2",
+  AUDIO_3: "audio_3"
 } as const;
 
 // ACTUAL original text mapping from the JSON template (exact strings)
 export const ORIGINAL_TEXTS = {
-  [TEXT_KEYS.WEBSITE]: "www.woodstockoutlet.com",
-  [TEXT_KEYS.CTA_SHOP]: "Shop the Caruso Bone Leather Maxi Sofa at ",
-  [TEXT_KEYS.CTA_DISCOVER]: "Discover minimalist luxury now.",
-  [TEXT_KEYS.FEATURE_CONSTRUCTION]: "Durable, easy-care construction built for modern life",
-  [TEXT_KEYS.FEATURE_TONE]: "Neutral Bone Tone",
-  [TEXT_KEYS.FEATURE_SILHOUETTE]: "Sleek tapered legs and tailored seams for a clean silhouette",
-  [TEXT_KEYS.FEATURE_SEATS]: "Two oversized low-profile seats",
-  [TEXT_KEYS.FEATURE_LEATHER]: "100% top-grain Italian leather",
-  [TEXT_KEYS.PRODUCT_SUBTITLE]: "Leather Maxi Sofa by Soft Line America",
-  [TEXT_KEYS.PRODUCT_NAME]: "CARUSO\rBONE\r",
-  [TEXT_KEYS.TAGLINE]: "Elevate your living space"
+  [TEXT_KEYS.WEBSITE]: TEXT_KEYS.WEBSITE,
+  [TEXT_KEYS.CTA_SHOP]: TEXT_KEYS.CTA_SHOP,
+  [TEXT_KEYS.FEATURE_CONSTRUCTION]: TEXT_KEYS.FEATURE_CONSTRUCTION,
+  [TEXT_KEYS.FEATURE_SILHOUETTE]: TEXT_KEYS.FEATURE_SILHOUETTE,
+  [TEXT_KEYS.FEATURE_FINISH]: TEXT_KEYS.FEATURE_FINISH,
+  [TEXT_KEYS.FEATURE_MATERIAL]: TEXT_KEYS.FEATURE_MATERIAL,
+  [TEXT_KEYS.PRODUCT_SUBTITLE]: TEXT_KEYS.PRODUCT_SUBTITLE,
+  [TEXT_KEYS.PRODUCT_NAME]: TEXT_KEYS.PRODUCT_NAME,
+  [TEXT_KEYS.TAGLINE]: TEXT_KEYS.TAGLINE,
+  [TEXT_KEYS.PRODUCT_BRAND]: TEXT_KEYS.PRODUCT_BRAND,
+  [TEXT_KEYS.PRODUCT_COLOR]: TEXT_KEYS.PRODUCT_COLOR
 };
 
 // Helper function to create content replacements (text + images + audio)
@@ -94,63 +96,50 @@ export const getAllOriginalTexts = (): string[] => {
   return Object.values(ORIGINAL_TEXTS);
 };
 
-// Helper function to create a furniture product template replacement
+// Backward-compatible helper: Create a product replacement mapping using new template strings.
 export const createFurnitureProductReplacement = (
-  productName: string = "CARUSO\rBONE\r",
-  productSubtitle: string = "Leather Maxi Sofa by Soft Line America",
-  material: string = "100% top-grain Italian leather",
-  colorTone: string = "Neutral Bone Tone",
-  seatingDescription: string = "Two oversized low-profile seats",
-  designFeatures: string = "Sleek tapered legs and tailored seams for a clean silhouette",
-  construction: string = "Durable, easy-care construction built for modern life",
-  ctaShop: string = "Shop the Caruso Bone Leather Maxi Sofa at ",
-  ctaDiscover: string = "Discover minimalist luxury now.",
-  website: string = "www.woodstockoutlet.com",
-  tagline: string = "Elevate your living space"
+  productName: string = TEXT_KEYS.PRODUCT_NAME,
+  productSubtitle: string = TEXT_KEYS.PRODUCT_SUBTITLE,
+  featureMaterial: string = TEXT_KEYS.FEATURE_MATERIAL,
+  featureFinish: string = TEXT_KEYS.FEATURE_FINISH,
+  featureConstruction: string = TEXT_KEYS.FEATURE_CONSTRUCTION,
+  featureSilhouette: string = TEXT_KEYS.FEATURE_SILHOUETTE,
+  ctaShop: string = TEXT_KEYS.CTA_SHOP,
+  website: string = TEXT_KEYS.WEBSITE,
+  tagline: string = TEXT_KEYS.TAGLINE,
+  brand: string = TEXT_KEYS.PRODUCT_BRAND,
+  color: string = TEXT_KEYS.PRODUCT_COLOR
 ): TextReplacements => {
   return {
     [TEXT_KEYS.PRODUCT_NAME]: productName,
     [TEXT_KEYS.PRODUCT_SUBTITLE]: productSubtitle,
-    [TEXT_KEYS.FEATURE_LEATHER]: material,
-    [TEXT_KEYS.FEATURE_TONE]: colorTone,
-    [TEXT_KEYS.FEATURE_SEATS]: seatingDescription,
-    [TEXT_KEYS.FEATURE_SILHOUETTE]: designFeatures,
-    [TEXT_KEYS.FEATURE_CONSTRUCTION]: construction,
+    [TEXT_KEYS.FEATURE_MATERIAL]: featureMaterial,
+    [TEXT_KEYS.FEATURE_FINISH]: featureFinish,
+    [TEXT_KEYS.FEATURE_CONSTRUCTION]: featureConstruction,
+    [TEXT_KEYS.FEATURE_SILHOUETTE]: featureSilhouette,
     [TEXT_KEYS.CTA_SHOP]: ctaShop,
-    [TEXT_KEYS.CTA_DISCOVER]: ctaDiscover,
     [TEXT_KEYS.WEBSITE]: website,
-    [TEXT_KEYS.TAGLINE]: tagline
+    [TEXT_KEYS.TAGLINE]: tagline,
+    [TEXT_KEYS.PRODUCT_BRAND]: brand,
+    [TEXT_KEYS.PRODUCT_COLOR]: color
   };
 };
 
-// Example: Create a replacement for a different sofa
-export const createSofaVariantReplacement = (
-  sofaName: string,
-  color: string,
-  material: string,
-  website: string
-): TextReplacements => {
-  return createFurnitureProductReplacement(
-    `${sofaName.toUpperCase()}\r${color.toUpperCase()}\r`,
-    `${material} Maxi Sofa by Soft Line America`,
-    `100% top-grain ${material.toLowerCase()}`,
-    `${color} ${color === 'Bone' ? 'Tone' : 'Finish'}`,
-    "Two oversized low-profile seats",
-    "Sleek tapered legs and tailored seams for a clean silhouette",
-    "Durable, easy-care construction built for modern life",
-    `Shop the ${sofaName} ${color} ${material} Maxi Sofa at `,
-    "Discover minimalist luxury now.",
-    website,
-    "Elevate your living space"
-  );
-};
-
-// Predefined sofa variants
+// Predefined variant example (can be adapted as needed)
 export const SOFA_VARIANTS = {
-  CARUSO_BONE: () => createSofaVariantReplacement("Caruso", "Bone", "Leather", "www.woodstockoutlet.com"),
-  CARUSO_BLACK: () => createSofaVariantReplacement("Caruso", "Black", "Leather", "www.woodstockoutlet.com"),
-  MILANO_CREAM: () => createSofaVariantReplacement("Milano", "Cream", "Leather", "www.woodstockoutlet.com"),
-  ROMA_BROWN: () => createSofaVariantReplacement("Roma", "Brown", "Leather", "www.woodstockoutlet.com")
+  CLARE_BEIGE: () => createFurnitureProductReplacement(
+    TEXT_KEYS.PRODUCT_NAME,
+    TEXT_KEYS.PRODUCT_SUBTITLE,
+    TEXT_KEYS.FEATURE_MATERIAL,
+    TEXT_KEYS.FEATURE_FINISH,
+    TEXT_KEYS.FEATURE_CONSTRUCTION,
+    TEXT_KEYS.FEATURE_SILHOUETTE,
+    TEXT_KEYS.CTA_SHOP,
+    TEXT_KEYS.WEBSITE,
+    TEXT_KEYS.TAGLINE,
+    "CLARE",
+    "BEIGE"
+  )
 };
 
 // USAGE EXAMPLES:
